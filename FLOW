@@ -1,0 +1,200 @@
+[
+    {
+        "id": "1f25cec2.bb4701",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "779a73ef.bc7fcc",
+        "type": "function",
+        "z": "1f25cec2.bb4701",
+        "name": "",
+        "func": "msg.payload = msg.payload.text;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 390,
+        "y": 360,
+        "wires": [
+            [
+                "d5940c2a.3b4dd",
+                "f9dce1d7.eb967"
+            ]
+        ]
+    },
+    {
+        "id": "d5940c2a.3b4dd",
+        "type": "watson-conversation-v1",
+        "z": "1f25cec2.bb4701",
+        "name": "",
+        "workspaceid": "cb8d985a-2fd9-45b7-8635-bd61689ab87c",
+        "multiuser": false,
+        "context": true,
+        "empty-payload": false,
+        "service-endpoint": "https://api.eu-gb.assistant.watson.cloud.ibm.com/instances/22dbc708-5cab-49f0-ada1-d0ddcc3af73c/v1/workspaces/cb8d985a-2fd9-45b7-8635-bd61689ab87c/message",
+        "timeout": "",
+        "optout-learning": false,
+        "x": 540,
+        "y": 260,
+        "wires": [
+            [
+                "9946aa0d.c40f18",
+                "bd022d8f.26109"
+            ]
+        ]
+    },
+    {
+        "id": "9946aa0d.c40f18",
+        "type": "function",
+        "z": "1f25cec2.bb4701",
+        "name": "",
+        "func": "msg.payload = msg.payload.output.text[0];\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "x": 870,
+        "y": 360,
+        "wires": [
+            [
+                "bff0858c.e67f78",
+                "59265372.74568c"
+            ]
+        ]
+    },
+    {
+        "id": "59265372.74568c",
+        "type": "debug",
+        "z": "1f25cec2.bb4701",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "x": 1030,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "bd022d8f.26109",
+        "type": "debug",
+        "z": "1f25cec2.bb4701",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "x": 800,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "3bcff6e8.b98b4a",
+        "type": "inject",
+        "z": "1f25cec2.bb4701",
+        "name": "",
+        "topic": "",
+        "payload": "hello",
+        "payloadType": "str",
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "x": 310,
+        "y": 140,
+        "wires": [
+            [
+                "d5940c2a.3b4dd"
+            ]
+        ]
+    },
+    {
+        "id": "f9dce1d7.eb967",
+        "type": "ui_text",
+        "z": "1f25cec2.bb4701",
+        "group": "68fae68d.f18268",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "you",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 560,
+        "y": 460,
+        "wires": []
+    },
+    {
+        "id": "bff0858c.e67f78",
+        "type": "ui_text",
+        "z": "1f25cec2.bb4701",
+        "group": "68fae68d.f18268",
+        "order": 6,
+        "width": "12",
+        "height": "6",
+        "name": "",
+        "label": "bot",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "x": 1000,
+        "y": 440,
+        "wires": []
+    },
+    {
+        "id": "976d1365.38442",
+        "type": "ui_form",
+        "z": "1f25cec2.bb4701",
+        "name": "",
+        "label": "help desk",
+        "group": "68fae68d.f18268",
+        "order": 1,
+        "width": "0",
+        "height": "0",
+        "options": [
+            {
+                "label": "ENTER TEXT",
+                "value": "text",
+                "type": "text",
+                "required": true,
+                "rows": null
+            }
+        ],
+        "formValue": {
+            "text": ""
+        },
+        "payload": "",
+        "submit": "submit",
+        "cancel": "cancel",
+        "topic": "",
+        "x": 180,
+        "y": 360,
+        "wires": [
+            [
+                "779a73ef.bc7fcc"
+            ]
+        ]
+    },
+    {
+        "id": "68fae68d.f18268",
+        "type": "ui_group",
+        "z": 0,
+        "name": "Customer Care",
+        "tab": "15722bd5.9c8744",
+        "order": 1,
+        "disp": true,
+        "width": "12",
+        "collapse": false
+    },
+    {
+        "id": "15722bd5.9c8744",
+        "type": "ui_tab",
+        "z": 0,
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
