@@ -9,4 +9,4 @@ In Watson Discovery I have added ecobee3_userguide.
 
 Node Red dashboard after deploying :https://node-red-epnep.mybluemix.net/ui
 
-Youtube link : https://youtu.be/ub7J19YvTC8
+Youtube link : https://www.youtube.com/watch?v=aYvb0iXzJDY
